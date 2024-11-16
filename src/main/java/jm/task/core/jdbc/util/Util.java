@@ -29,6 +29,7 @@ public class Util {
         prop.setProperty(Environment.PASS, PASSWORD);
         prop.setProperty(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
         prop.setProperty(Environment.DRIVER, DRIVER);
+        prop.setProperty(Environment.HBM2DDL_AUTO, "");
         Configuration config = new Configuration();
         config.setProperties(prop);
         config.addAnnotatedClass(User.class);

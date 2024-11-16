@@ -11,16 +11,12 @@ import java.util.List;
 public class UserDaoHibernateImpl implements UserDao {
     private final Session session;
 
-    {
+    public UserDaoHibernateImpl() {
         try {
             session = Util.getHibernateSession();
         } catch (HibernateException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public UserDaoHibernateImpl() {
-
     }
 
 
@@ -47,6 +43,7 @@ public class UserDaoHibernateImpl implements UserDao {
         user.setAge(age);
         session.save(user);
         transaction.commit();
+        System.out.println("User с именем — " + name + " добавлен в базу данных");
     }
 
     @Override

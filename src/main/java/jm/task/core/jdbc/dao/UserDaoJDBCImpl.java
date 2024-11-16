@@ -2,6 +2,7 @@ package jm.task.core.jdbc.dao;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,17 +11,12 @@ public class UserDaoJDBCImpl implements UserDao {
 
     private final Connection connection;
 
-    {
+    public UserDaoJDBCImpl() {
         try {
             connection = Util.getMySQLConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-
-    public UserDaoJDBCImpl() {
-
     }
 
     @Override
